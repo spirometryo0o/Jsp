@@ -1,0 +1,36 @@
+package ch02;
+
+import java.io.IOException;
+
+import jakarta.servlet.jsp.JspWriter;
+
+public class Account {
+
+	private String bank;
+	private String id;
+	private String name;
+	private int balance;
+	
+public Account(String bank, String id, String name, int balance) {
+	this.balance = balance;
+	this.bank = bank;
+	this.id = id;
+	this.name = name;
+	}
+
+	public void withdraw(int balance) {
+		this.balance -=balance;
+	}
+	public void deposit(int balance) {
+		this.balance +=balance;
+	}
+	
+	public void show(JspWriter out) throws IOException {
+		
+		out.println("<p>");
+		out.println("은행명 : " + bank + "<br>");
+		out.println("계좌변호 : " + id + "<br>" );
+		out.println("입금주 : " + name + "<br>");
+		out.println("현재잔액 : " + balance + "<br>");
+	}
+}
